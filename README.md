@@ -15,7 +15,7 @@ python -m ipykernel install --user --name tp2-juizados --display-name "Python (T
 streamlit run app.py
 ```
 
-Para executar os notebooks, abra a pasta no JupyterLab ou VS Code e selecione o kernel **Python (TP2 Juizados)**. Eles devem ser iniciados a partir da pasta do projeto ou da pasta `src`; os caminhos são montados com `Path.cwd()` e não dependem do computador de quem executa.
+Para executar os notebooks, abra a pasta no JupyterLab ou VS Code e selecione o kernel **Python (TP2 Juizados)**. Eles procuram a pasta `data` na pasta atual e nas pastas acima, portanto não dependem do caminho do computador de quem executa.
 
 O `requirements.txt` contém somente as dependências da aplicação. O `requirements-dev.txt` acrescenta as ferramentas usadas nos notebooks, deixando a instalação do Streamlit Community Cloud mais simples.
 
