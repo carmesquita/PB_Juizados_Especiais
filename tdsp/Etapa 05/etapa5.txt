@@ -8,4 +8,4 @@ O projeto será considerado aceito quando:
 - permitir baixar o resultado filtrado;
 - aceitar o arquivo CSV complementar no formato definido;
 - manter os dados complementares durante a sessão;
-- exibir as notícias coletadas do portal do CNJ..
+- exibir as notícias coletadas do portal do CNJ.

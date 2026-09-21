@@ -1,0 +1,10 @@
+ETAPA 1 - ENTENDIMENTO DO NEGÓCIO
+
+Os Juizados Especiais foram escolhidos por terem sido criados para facilitar o tratamento de causas de menor complexidade,
+com procedimento orientado pela simplicidade, rapidez e acesso à Justiça, conforme a Lei nº 9.099/1995.
+O projeto está relacionado à ODS 16, que trata do acesso à Justiça e de instituições eficazes.
+O problema observado é a dificuldade de comparar, de forma simples, o tempo médio até a sentença entre os Tribunais de Justiça.
+
+A pergunta do projeto é: como o tempo médio até a sentença na fase de conhecimento dos Juizados Especiais varia entre os 27 Tribunais de Justiça?
+
+O objetivo é apresentar essa comparação em um painel simples e intuitivo.

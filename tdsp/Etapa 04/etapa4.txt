@@ -1,5 +1,4 @@
 ETAPA 4 - IMPLANTAÇÃO
-
 A aplicação foi construída em Streamlit.
 Os arquivos processados são lidos com cache para evitar leituras repetidas.
 O painel possui botão, slider, caixas de seleção, upload e download de CSV.

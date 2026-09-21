@@ -9,7 +9,6 @@ CAMPOS_COMPLEMENTARES = ["tribunal", "observacao", "fonte"]
 
 st.set_page_config(
     page_title="Tempo de sentença nos Juizados Especiais",
-    page_icon=":material/balance:",
     layout="wide",
 )
 
@@ -40,25 +39,26 @@ st.caption(
     "de Justiça em 2026."
 )
 
-with st.container(horizontal=True):
-    st.metric("Tribunais analisados", len(dados), border=True)
+coluna1, coluna2, coluna3, coluna4 = st.columns(4)
+with coluna1:
+    st.metric("Tribunais analisados", len(dados))
+with coluna2:
     st.metric(
         "Média dos tribunais",
         f"{dados['tempo_medio_sentenca_dias'].mean():.1f} dias",
-        border=True,
     )
+with coluna3:
     st.metric(
         "Menor tempo",
         f"{dados.iloc[0]['tribunal']} — {dados.iloc[0]['tempo_medio_sentenca_dias']:.1f} dias",
-        border=True,
     )
+with coluna4:
     st.metric(
         "Maior tempo",
         f"{dados.iloc[-1]['tribunal']} — {dados.iloc[-1]['tempo_medio_sentenca_dias']:.1f} dias",
-        border=True,
     )
 
-st.header("Comparação entre tribunais", icon=":material/bar_chart:")
+st.header("Comparação entre tribunais")
 
 coluna1, coluna2 = st.columns(2)
 limite = coluna1.slider(
@@ -105,10 +105,6 @@ st.dataframe(
         }
     ),
     hide_index=True,
-    column_config={
-        "Tempo médio da sentença": st.column_config.NumberColumn(format="%.1f dias"),
-        "Sentenças de conhecimento": st.column_config.NumberColumn(format="%d"),
-    },
 )
 
 st.download_button(
@@ -116,7 +112,6 @@ st.download_button(
     filtrados.to_csv(index=False).encode("utf-8-sig"),
     "tempo_sentenca_juizados.csv",
     "text/csv",
-    icon=":material/download:",
 )
 
 st.subheader("Consulta e comparação")
@@ -126,19 +121,19 @@ tribunal_selecionado = st.selectbox(
 )
 linha_selecionada = dados.loc[dados["tribunal"] == tribunal_selecionado].iloc[0]
 
-with st.container(horizontal=True):
+coluna1, coluna2 = st.columns(2)
+with coluna1:
     st.metric(
         f"Tempo no {tribunal_selecionado}",
         f"{linha_selecionada['tempo_medio_sentenca_dias']:.1f} dias",
-        border=True,
     )
+with coluna2:
     st.metric(
         "Sentenças de conhecimento",
         f"{linha_selecionada['sentencas_conhecimento']:,.0f}".replace(",", "."),
-        border=True,
     )
 
-if st.button("Adicionar à comparação", icon=":material/add:"):
+if st.button("Adicionar à comparação"):
     if tribunal_selecionado not in st.session_state["comparacao"]:
         st.session_state["comparacao"].append(tribunal_selecionado)
 
@@ -150,24 +145,23 @@ if st.session_state["comparacao"]:
         ],
         hide_index=True,
     )
-    if st.button("Limpar comparação", icon=":material/delete:"):
+    if st.button("Limpar comparação"):
         st.session_state["comparacao"].clear()
         st.rerun()
 
-st.header("Notícias dos Juizados Especiais", icon=":material/newspaper:")
+st.header("Notícias dos Juizados Especiais")
 st.write(
     "Conteúdo coletado da página de notícias dos Juizados Especiais no portal "
     "do CNJ com Beautiful Soup."
 )
 
 for _, noticia in noticias.head(5).iterrows():
-    with st.container(border=True):
-        st.markdown(f"**{noticia['titulo']}**")
-        st.caption(noticia["data"])
-        st.write(noticia["resumo"])
-        st.markdown(f"[Ler no portal do CNJ]({noticia['url']})")
+    st.markdown(f"**{noticia['titulo']}**")
+    st.caption(noticia["data"])
+    st.write(noticia["resumo"])
+    st.markdown(f"[Ler no portal do CNJ]({noticia['url']})")
 
-st.header("Dados complementares", icon=":material/upload_file:")
+st.header("Dados complementares")
 st.write(
     "O arquivo deve possuir as colunas: tribunal, observacao e fonte. Um modelo "
     "está disponível na pasta data/sample."
@@ -193,7 +187,6 @@ if not st.session_state["dados_complementares"].empty:
         st.session_state["dados_complementares"].to_csv(index=False).encode("utf-8-sig"),
         "dados_complementares.csv",
         "text/csv",
-        icon=":material/download:",
     )
 
 st.subheader("Fontes")
