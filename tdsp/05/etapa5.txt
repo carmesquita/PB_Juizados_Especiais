@@ -1,0 +1,11 @@
+ETAPA 5 - ACEITAÇÃO DO CLIENTE
+
+O projeto será considerado aceito quando:
+
+- apresentar os 27 Tribunais de Justiça;
+- mostrar corretamente o indicador de tempo médio até a sentença;
+- permitir filtrar, ordenar e consultar os dados;
+- permitir baixar o resultado filtrado;
+- aceitar o arquivo CSV complementar no formato definido;
+- manter os dados complementares durante a sessão;
+- exibir as notícias coletadas do portal do CNJ..

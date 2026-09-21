@@ -1,0 +1,7 @@
+ETAPA 2 - AQUISIÇÃO E ENTENDIMENTO DOS DADOS
+
+O indicador principal foi obtido na base Justiça em Números do CNJ.
+O notebook extrair_justica_em_numeros.ipynb baixa o arquivo oficial, lê a base consolidada e seleciona os dados de 2025 dos 27 Tribunais de Justiça.
+As notícias foram coletadas da página dos Juizados Especiais no portal do CNJ.
+O notebook coletar_noticias_juizados.ipynb usa requests e Beautiful Soup para capturar título, data, resumo e link.
+Também foi criado um modelo de CSV para o envio de observações complementares pelo usuário.

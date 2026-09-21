@@ -1,0 +1,5 @@
+ETAPA 3 - MODELAGEM
+
+Os tribunais são comparados pelo tempo médio até a sentença, medido em dias.
+O painel apresenta quantidade de tribunais, média simples dos valores, menor e maior tempo, gráfico de barras, tabela e consulta por tribunal.
+Um controle permite limitar o tempo exibido e outro altera a ordem dos resultados.
